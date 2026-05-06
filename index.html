@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 크리에이터 컨퍼런스 2026 — AI 시대, 1인 크리에이터는 무엇으로 살아남는가</title>
+  <meta name="description" content="2026.05.30 강남. 알린·김이솝·신영선·동테크·투쏠·그랜트 — AI 크리에이터 6인이 처음 한 무대에. 합산 도달 39만+. 수익금은 1원도 남기지 않고 기부됩니다." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI 크리에이터 컨퍼런스 2026" />
+  <meta property="og:description" content="AI 시대, 1인 크리에이터는 무엇으로 살아남는가. 6인이 처음 한 무대에. 5월 30일 강남." />
+  <meta property="og:image" content="https://placehold.co/1200x630/121212/1ED760?text=AI+Creator+Conf+2026" />
+  <meta property="og:url" content="#" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Pretendard -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', 'CircularSp', 'SpotifyMixUI', system-ui, -apple-system, sans-serif;
+      background-color: #121212;
+      color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+    }
+    .text-secondary { color: #B3B3B3; }
+    .accent { color: #1ED760; }
+    .bg-accent { background-color: #1ED760; }
+    .bg-elevated { background-color: #181818; }
+    .bg-card { background-color: #1F1F1F; }
+    .bg-input { background-color: #2A2A2A; }
+
+    .btn-primary {
+      background-color: #1ED760; color: #000;
+      padding: 1rem 2.5rem; border-radius: 9999px;
+      font-weight: 700; letter-spacing: 0.04em;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      transition: transform .15s ease, background-color .15s ease;
+    }
+    .btn-primary:hover { background-color: #1FDF64; transform: scale(1.04); }
+
+    .btn-secondary {
+      border: 1px solid #B3B3B3; color: #fff;
+      padding: 1rem 2.5rem; border-radius: 9999px;
+      font-weight: 600;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .btn-secondary:hover { border-color: #fff; transform: scale(1.04); }
+
+    .card {
+      background-color: #181818; border-radius: 8px; padding: 1.5rem;
+      transition: background-color .2s ease;
+    }
+    .card:hover { background-color: #1F1F1F; }
+
+    input, select, textarea {
+      background-color: #2A2A2A; color: #fff;
+      border: 0; border-radius: 6px;
+      padding: 0.85rem 1rem; width: 100%;
+      transition: background-color .15s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      background-color: #3E3E3E; outline: none;
+    }
+    input::placeholder, textarea::placeholder { color: #B3B3B3; }
+
+    .nav-blur {
+      background-color: rgba(18,18,18,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .faq-item[open] summary svg { transform: rotate(180deg); }
+    summary::-webkit-details-marker { display: none; }
+    summary { list-style: none; cursor: pointer; }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    @keyframes pulse-soft { 0%, 100% { opacity: 1; } 50% { opacity: .6; } }
+    .pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
+
+    /* ============ Animations ============ */
+    @media (prefers-reduced-motion: no-preference) {
+
+      /* Scroll reveal — applied via JS */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1);
+        will-change: opacity, transform;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-d1 { transition-delay: .08s; }
+      .reveal-d2 { transition-delay: .16s; }
+      .reveal-d3 { transition-delay: .24s; }
+      .reveal-d4 { transition-delay: .32s; }
+      .reveal-d5 { transition-delay: .40s; }
+      .reveal-d6 { transition-delay: .48s; }
+
+      /* Hero entrance on load */
+      @keyframes hero-in {
+        from { opacity: 0; transform: translateY(24px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .hero-in    { opacity: 0; animation: hero-in .9s cubic-bezier(.22,.61,.36,1) both; }
+      .hero-in-1  { animation-delay: .05s; }
+      .hero-in-2  { animation-delay: .20s; }
+      .hero-in-3  { animation-delay: .35s; }
+      .hero-in-4  { animation-delay: .50s; }
+      .hero-in-5  { animation-delay: .65s; }
+      .hero-in-6  { animation-delay: .80s; }
+
+      /* Card hover lift */
+      .card {
+        transition: background-color .25s ease, transform .25s ease, box-shadow .25s ease;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      }
+
+      /* Subtle hero blob drift */
+      @keyframes blob-drift {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50%      { transform: translate(20px, -10px) scale(1.08); }
+      }
+      .blob-drift { animation: blob-drift 9s ease-in-out infinite; }
+
+      /* CTA shimmer ring */
+      @keyframes shimmer-ring {
+        0%   { box-shadow: 0 0 0 0 rgba(30, 215, 96, 0.45); }
+        70%  { box-shadow: 0 0 0 14px rgba(30, 215, 96, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(30, 215, 96, 0); }
+      }
+      .cta-pulse { animation: shimmer-ring 2.6s ease-out infinite; }
+    }
+
+    /* Reduced motion fallback */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .hero-in { opacity: 1 !important; animation: none !important; }
+    }
+
+    /* ============ Mobile polish ============ */
+    /* iOS Safari zoom prevention on focus */
+    input, select, textarea { font-size: 16px; }
+
+    /* Mobile sticky bar 본문 침범 방지 */
+    @media (max-width: 767px) {
+      body { padding-bottom: 88px; }
+      h1 { letter-spacing: -0.02em; }
+      .card { padding: 1.25rem; }
+    }
+
+    /* Tap highlight tone-down */
+    a, button, summary, label { -webkit-tap-highlight-color: rgba(30,215,96,0.15); }
+  </style>
+</head>
+<body class="bg-[#121212]">
+
+  <!-- ============================================== -->
+  <!-- 1. NAV (Sticky) -->
+  <!-- ============================================== -->
+  <header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-200">
+    <nav class="max-w-6xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-2 font-bold text-lg tracking-tight">
+        <span class="accent text-2xl">●</span>
+        <span>AI Creator Conf 2026</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm text-secondary">
+        <a href="#speakers" class="hover:text-white transition">발표자</a>
+        <a href="#timetable" class="hover:text-white transition">타임테이블</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
+        <a href="#cta" class="btn-primary text-sm" style="padding: 0.6rem 1.5rem;">자리 잡기</a>
+      </div>
+      <a href="#cta" class="md:hidden btn-primary text-sm" style="padding: 0.5rem 1.25rem;">자리 잡기</a>
+    </nav>
+  </header>
+
+  <!-- ============================================== -->
+  <!-- 2. HERO -->
+  <!-- ============================================== -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 grid-bg opacity-50"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-[#1ED760] rounded-full opacity-[0.05] blur-[120px] pointer-events-none blob-drift"></div>
+    <div class="absolute bottom-0 left-0 w-[28rem] h-[28rem] bg-[#1ED760] rounded-full opacity-[0.03] blur-[140px] pointer-events-none blob-drift" style="animation-delay: -4s;"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 md:px-12 py-24 md:py-40 w-full">
+      <div class="hero-in hero-in-1 inline-flex items-center gap-2 px-4 py-2 bg-elevated rounded-full text-xs md:text-sm text-secondary mb-8">
+        <span class="accent pulse-soft">●</span>
+        2026.05.30 (토) · 강남 · 단 1회 · 수익금 전액 기부
+      </div>
+
+      <h1 class="hero-in hero-in-2 text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-8">
+        AI 시대,<br />
+        1인 크리에이터는<br />
+        무엇으로 <span class="accent">살아남는가</span>
+      </h1>
+
+      <p class="hero-in hero-in-3 text-base sm:text-lg md:text-2xl text-secondary leading-relaxed mb-4 max-w-3xl">
+        알린 · 김이솝 · 신영선 · 동테크 · 투쏠 · 그랜트<br />
+        합산 도달 <span class="accent font-bold">39만+</span>.
+        AI 크리에이터 6인이 <span class="text-white font-semibold">처음 한 무대</span>에 섭니다.
+      </p>
+      <p class="hero-in hero-in-4 text-lg sm:text-xl md:text-2xl font-bold mb-12 max-w-3xl">
+        그리고 <span class="accent">수익금은 1원도 남기지 않고 기부</span>됩니다.
+      </p>
+
+      <div class="hero-in hero-in-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
+        <a href="#cta" class="btn-primary cta-pulse text-base md:text-lg">5월 30일 강남 — 자리 잡기 →</a>
+        <p class="text-xs md:text-sm text-secondary">좌석 150석 · VIP 30석 · 환불 불가</p>
+      </div>
+
+      <!-- D-Day Countdown -->
+      <div class="hero-in hero-in-6 flex items-center gap-4 text-secondary">
+        <span class="text-xs uppercase tracking-widest">D-Day</span>
+        <div id="countdown" class="font-mono text-base md:text-lg accent font-bold">--일 --:--:--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 3. SOCIAL PROOF -->
+  <!-- ============================================== -->
+  <section id="speakers" class="py-20 md:py-32">
+    <div class="max-w-6xl mx-auto px-6 md:px-12">
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+        이 6명, 한 번이라도<br class="md:hidden" /> 보신 적 있나요?
+      </h2>
+      <p class="text-secondary md:text-lg mb-16 max-w-2xl">
+        합산 채널 도달 <span class="accent font-bold">39만+</span>. 각자의 영역에서 AI를 가장 빠르게 다루는 한국 크리에이터들.
+      </p>
+
+      <!-- 6 Speakers Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+        <!-- 알린 -->
+        <a href="#" class="card group">
+          <img src="https://placehold.co/600x400/1F1F1F/B3B3B3?text=알린+ALINN" class="w-full aspect-video object-cover rounded-md mb-4" alt="알린 ALINN" />
+          <div class="flex items-baseline justify-between mb-1">
+            <h3 class="text-xl font-bold">알린</h3>
+            <span class="accent font-bold">17만</span>
+          </div>
+          <p class="text-secondary text-sm mb-2">알린 ALINN</p>
+          <p class="text-sm">"젠스파크 릴스 1,000만 뷰"</p>
+        </a>
+        <!-- 동테크 -->
+        <a href="#" class="card group">
+          <img src="https://placehold.co/600x400/1F1F1F/B3B3B3?text=동테크" class="w-full aspect-video object-cover rounded-md mb-4" alt="동테크" />
+          <div class="flex items-baseline justify-between mb-1">
+            <h3 class="text-xl font-bold">동테크</h3>
+            <span class="accent font-bold">4만</span>
+          </div>
+          <p class="text-secondary text-sm mb-2">동테크</p>
+          <p class="text-sm">"1인 크리에이터의 무기"</p>
+        </a>
+        <!-- 김이솝 -->
+        <a href="#" class="card group">
+          <img src="https://placehold.co/600x400/1F1F1F/B3B3B3?text=김이솝" class="w-full aspect-video object-cover rounded-md mb-4" alt="김이솝" />
+          <div class="flex items-baseline justify-between mb-1">
+            <h3 class="text-xl font-bold">김이솝</h3>
+            <span class="accent font-bold">8만</span>
+          </div>
+          <p class="text-secondary text-sm mb-2">김이솝의 AI 가이드</p>
+          <p class="text-sm">"현대카드 AI 강사"</p>
+        </a>
+        <!-- 신영선 -->
+        <a href="#" class="card group">
+          <img src="https://placehold.co/600x400/1F1F1F/B3B3B3?text=신영선" class="w-full aspect-video object-cover rounded-md mb-4" alt="신영선" />
+          <div class="flex items-baseline justify-between mb-1">
+            <h3 class="text-xl font-bold">신영선</h3>
+            <span class="accent font-bold">8만</span>
+          </div>
+          <p class="text-secondary text-sm mb-2">신영선의 AI탐구</p>
+          <p class="text-sm">"직접 한 번 시도해보는 게 답"</p>
+        </a>
+        <!-- 투쏠 -->
+        <a href="#" class="card group">
+          <img src="https://placehold.co/600x400/1F1F1F/B3B3B3?text=투쏠" class="w-full aspect-video object-cover rounded-md mb-4" alt="투쏠" />
+          <div class="flex items-baseline justify-between mb-1">
+            <h3 class="text-xl font-bold">투쏠</h3>
+            <span class="accent font-bold">1만</span>
+          </div>
+          <p class="text-secondary text-sm mb-2">투쏠ㅣAI 에이전트</p>
+          <p class="text-sm">"빠른 AI보다 느린 AI"</p>
+        </a>
+        <!-- 그랜트 -->
+        <a href="#" class="card group">
+          <img src="https://placehold.co/600x400/1F1F1F/B3B3B3?text=그랜트" class="w-full aspect-video object-cover rounded-md mb-4" alt="그랜트" />
+          <div class="flex items-baseline justify-between mb-1">
+            <h3 class="text-xl font-bold">그랜트</h3>
+            <span class="accent font-bold">1만</span>
+          </div>
+          <p class="text-secondary text-sm mb-2">마케팅 AX</p>
+          <p class="text-sm">"1인 사업가 AI 마케팅"</p>
+        </a>
+      </div>
+
+      <!-- External Trust Strip -->
+      <div class="border-t border-[#2A2A2A] pt-12">
+        <p class="text-xs uppercase tracking-widest text-secondary mb-6 text-center">이 6명을 검증한 곳들</p>
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-60">
+          <div class="text-secondary text-sm md:text-base font-semibold">현대카드</div>
+          <div class="text-secondary text-sm md:text-base font-semibold">젠스파크</div>
+          <div class="text-secondary text-sm md:text-base font-semibold">EO</div>
+          <div class="text-secondary text-sm md:text-base font-semibold">아웃스탠딩</div>
+          <div class="text-secondary text-sm md:text-base font-semibold">Platum</div>
+          <div class="text-secondary text-sm md:text-base font-semibold">디스콰이엇</div>
+        </div>
+        <p class="text-center text-xs text-secondary mt-4">* 6인의 외부 출연·강의·협업 이력</p>
+      </div>
+
+      <!-- Callout -->
+      <div class="mt-16 p-8 md:p-12 bg-elevated rounded-xl">
+        <p class="text-xl md:text-2xl leading-relaxed">
+          이 6명을 다 구독하셨다면, <span class="accent font-bold">1년치 콘텐츠를 4시간에 압축</span>해서 보는 자리.<br />
+          처음 들어보신다면, <span class="accent font-bold">AI 크리에이터 카테고리 전체를 4시간에 스캔</span>하는 자리.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 4. BENEFITS -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-32 bg-elevated">
+    <div class="max-w-5xl mx-auto px-6 md:px-12">
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-16">
+        이 컨퍼런스를 다녀가시면
+      </h2>
+
+      <ul class="space-y-4">
+        <li class="flex items-start gap-4 p-6 bg-card rounded-lg">
+          <svg class="w-6 h-6 accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <p class="text-lg md:text-xl">보기만 하던 6명을, <span class="font-bold">같은 공간에서 직접</span> 듣습니다</p>
+        </li>
+        <li class="flex items-start gap-4 p-6 bg-card rounded-lg">
+          <svg class="w-6 h-6 accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <p class="text-lg md:text-xl">'AI를 어떻게 써야 하는가'에 대한 답을, <span class="font-bold">6가지 다른 관점에서 동시에</span> 받습니다</p>
+        </li>
+        <li class="flex items-start gap-4 p-6 bg-card rounded-lg">
+          <svg class="w-6 h-6 accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <p class="text-lg md:text-xl">AI 크리에이터로 살아가는 사람들이 <span class="font-bold">실제로 무엇을 하는지</span> 봅니다</p>
+        </li>
+        <li class="flex items-start gap-4 p-6 bg-card rounded-lg">
+          <svg class="w-6 h-6 accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <p class="text-lg md:text-xl">4시간 후, <span class="font-bold">'다음 1년간 무엇을 해야 하는지'</span> 가 명확해집니다</p>
+        </li>
+        <li class="flex items-start gap-4 p-6 bg-card rounded-lg border border-[#1ED760]/30">
+          <svg class="w-6 h-6 accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <p class="text-lg md:text-xl">그리고 — 당신이 낸 참가비가, <span class="accent font-bold">누군가의 첫 AI 교실</span>을 만듭니다</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 5. HOW IT WORKS -->
+  <!-- ============================================== -->
+  <section id="timetable" class="py-20 md:py-32">
+    <div class="max-w-6xl mx-auto px-6 md:px-12">
+
+      <!-- 5-1. Sessions -->
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+        6인의 발표
+      </h2>
+      <p class="text-secondary md:text-lg mb-16 max-w-2xl">누가 무엇을 풀어드리는가</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-24">
+        <div class="card">
+          <div class="aspect-video bg-[#1F1F1F] rounded-md mb-4 flex items-center justify-center text-secondary text-sm">[ 알린 사진 ]</div>
+          <p class="text-xs accent font-bold tracking-widest mb-2">SESSION 01</p>
+          <h3 class="text-2xl font-bold mb-3">알린</h3>
+          <p class="text-lg font-semibold mb-3">17만 유튜버의 콘텐츠 제작법</p>
+          <p class="text-secondary italic">"내가 어떻게 영상을 만드는지, 처음부터 끝까지 보여드립니다"</p>
+        </div>
+        <div class="card">
+          <div class="aspect-video bg-[#1F1F1F] rounded-md mb-4 flex items-center justify-center text-secondary text-sm">[ 동테크 사진 ]</div>
+          <p class="text-xs accent font-bold tracking-widest mb-2">SESSION 02</p>
+          <h3 class="text-2xl font-bold mb-3">동테크</h3>
+          <p class="text-lg font-semibold mb-3">1인 크리에이터의 AI 활용</p>
+          <p class="text-secondary italic">"PD도 조명팀도 없는 1인이 AI로 무엇을 할 수 있는지"</p>
+        </div>
+        <div class="card">
+          <div class="aspect-video bg-[#1F1F1F] rounded-md mb-4 flex items-center justify-center text-secondary text-sm">[ 김이솝 사진 ]</div>
+          <p class="text-xs accent font-bold tracking-widest mb-2">SESSION 03</p>
+          <h3 class="text-2xl font-bold mb-3">김이솝</h3>
+          <p class="text-lg font-semibold mb-3">8만 유튜버의 노하우 (큰 틀)</p>
+          <p class="text-secondary italic">"현대카드가 듣는 AI 강의의 핵심 한 가지"</p>
+        </div>
+        <div class="card">
+          <div class="aspect-video bg-[#1F1F1F] rounded-md mb-4 flex items-center justify-center text-secondary text-sm">[ 신영선 사진 ]</div>
+          <p class="text-xs accent font-bold tracking-widest mb-2">SESSION 04</p>
+          <h3 class="text-2xl font-bold mb-3">신영선</h3>
+          <p class="text-lg font-semibold mb-3">AI 인스타그램 크리에이터</p>
+          <p class="text-secondary italic">"AI로 인스타를 키운 실제 데이터 공개"</p>
+        </div>
+        <div class="card">
+          <div class="aspect-video bg-[#1F1F1F] rounded-md mb-4 flex items-center justify-center text-secondary text-sm">[ 투쏠 사진 ]</div>
+          <p class="text-xs accent font-bold tracking-widest mb-2">SESSION 05</p>
+          <h3 class="text-2xl font-bold mb-3">투쏠</h3>
+          <p class="text-lg font-semibold mb-3">AI 비즈니스 생태계</p>
+          <p class="text-secondary italic">"AI 에이전트로 비즈니스 짜는 실제 구조"</p>
+        </div>
+        <div class="card">
+          <div class="aspect-video bg-[#1F1F1F] rounded-md mb-4 flex items-center justify-center text-secondary text-sm">[ 그랜트 사진 ]</div>
+          <p class="text-xs accent font-bold tracking-widest mb-2">SESSION 06</p>
+          <h3 class="text-2xl font-bold mb-3">그랜트</h3>
+          <p class="text-lg font-semibold mb-3">AI 마케팅</p>
+          <p class="text-secondary italic">"1인 사업가가 AI로 마케팅 자동화하는 실전 워크플로우"</p>
+        </div>
+      </div>
+
+      <!-- 5-2. Timetable -->
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-16">
+        4시간, 이렇게 흘러갑니다
+      </h2>
+
+      <div class="space-y-1 mb-24">
+        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-6 border-b border-[#2A2A2A]">
+          <div class="font-mono accent font-bold text-base md:w-44">14:00 – 14:20</div>
+          <div>
+            <p class="font-semibold text-lg">오프닝</p>
+            <p class="text-secondary text-sm">"AI 시대, 1인 크리에이터는 무엇으로 살아남는가" · 사회: 신영선</p>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-6 border-b border-[#2A2A2A]">
+          <div class="font-mono accent font-bold text-base md:w-44">14:20 – 16:50</div>
+          <div>
+            <p class="font-semibold text-lg">6인 연속 발표</p>
+            <p class="text-secondary text-sm">각 25분 · 알린 → 동테크 → 김이솝 → 신영선 → 투쏠 → 그랜트</p>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-6 border-b border-[#2A2A2A]">
+          <div class="font-mono accent font-bold text-base md:w-44">16:50 – 17:20</div>
+          <div>
+            <p class="font-semibold text-lg">현장 Q&A</p>
+            <p class="text-secondary text-sm">발표자에게 직접 묻는 시간</p>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-6 border-b border-[#2A2A2A]">
+          <div class="font-mono accent font-bold text-base md:w-44">17:20 – 17:30</div>
+          <div>
+            <p class="font-semibold text-lg">클로징</p>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-6">
+          <div class="font-mono accent font-bold text-base md:w-44">17:30 ~</div>
+          <div>
+            <p class="font-semibold text-lg">네트워킹 <span class="text-xs accent border border-[#1ED760] px-2 py-0.5 rounded-full ml-2 align-middle">VIP</span></p>
+            <p class="text-secondary text-sm">발표자 1명당 5명 — 1시간 프라이빗</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5-3. Talk Concert -->
+      <div class="mb-12">
+        <p class="text-xs accent font-bold tracking-widest mb-3">🎙 토크콘서트</p>
+        <h3 class="text-2xl md:text-3xl font-bold mb-8">이 자리가 아니면 들을 수 없는 3가지 질문</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="card">
+            <p class="accent font-bold mb-2">Q1.</p>
+            <p class="leading-relaxed">AI가 크리에이터의 무엇을 '대체'하고 무엇을 '증폭'시키는가?</p>
+          </div>
+          <div class="card">
+            <p class="accent font-bold mb-2">Q2.</p>
+            <p class="leading-relaxed">"이 사람 만나보고 싶다"를 만들어낸 각자의 '한 방'은?</p>
+          </div>
+          <div class="card">
+            <p class="accent font-bold mb-2">Q3.</p>
+            <p class="leading-relaxed">1인 크리에이터가 AI 시대에 살아남으려면, 앞으로 6개월 안에 해야 할 한 가지는?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary CTA -->
+      <div class="text-center mt-16">
+        <a href="#cta" class="btn-secondary">이 6명을 한 자리에서 만나기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 6. TESTIMONIAL / USE CASE -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-32 bg-elevated">
+    <div class="max-w-6xl mx-auto px-6 md:px-12">
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+        왜 이 6명을<br class="md:hidden" /> 한 자리에 모았는가
+      </h2>
+      <p class="text-secondary md:text-lg mb-16 max-w-2xl">
+        이 6명은 한 번도 같은 무대에 선 적이 없습니다. 각자의 영역에서 외부 검증을 받은 사람들입니다.
+      </p>
+
+      <!-- External Validation Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
+        <div class="card">
+          <p class="text-secondary text-xs uppercase tracking-widest mb-2">알린</p>
+          <p class="text-2xl font-bold accent mb-2">1,000만 뷰</p>
+          <p class="text-sm text-secondary">젠스파크 릴스 단일 영상 누적</p>
+        </div>
+        <div class="card">
+          <p class="text-secondary text-xs uppercase tracking-widest mb-2">김이솝</p>
+          <p class="text-2xl font-bold accent mb-2">현대카드 강의</p>
+          <p class="text-sm text-secondary">기업 사내 AI 강사로 출강</p>
+        </div>
+        <div class="card">
+          <p class="text-secondary text-xs uppercase tracking-widest mb-2">신영선</p>
+          <p class="text-2xl font-bold accent mb-2">AI 인스타 실데이터</p>
+          <p class="text-sm text-secondary">"직접 시도해보는 게 답" — 본인 운영 데이터로 증명</p>
+        </div>
+        <div class="card">
+          <p class="text-secondary text-xs uppercase tracking-widest mb-2">동테크</p>
+          <p class="text-2xl font-bold accent mb-2">1인 크리에이터의 무기</p>
+          <p class="text-sm text-secondary">테크 리뷰 · 협업 콘텐츠 다수</p>
+        </div>
+        <div class="card">
+          <p class="text-secondary text-xs uppercase tracking-widest mb-2">투쏠</p>
+          <p class="text-2xl font-bold accent mb-2">AI 에이전트 사례</p>
+          <p class="text-sm text-secondary">실비즈니스에 적용된 에이전트 운영 구조</p>
+        </div>
+        <div class="card">
+          <p class="text-secondary text-xs uppercase tracking-widest mb-2">그랜트</p>
+          <p class="text-2xl font-bold accent mb-2">1인 사업가 AX</p>
+          <p class="text-sm text-secondary">마케팅 자동화 워크플로우 실전 적용</p>
+        </div>
+      </div>
+
+      <!-- Curator Note -->
+      <div class="max-w-3xl mx-auto p-8 md:p-12 bg-card rounded-xl border-l-4 border-[#1ED760] mb-20">
+        <p class="text-xs accent font-bold tracking-widest mb-3">큐레이터 노트</p>
+        <p class="text-lg md:text-xl leading-relaxed text-white">
+          이 6명은 한 번도 같은 무대에 선 적이 없습니다.<br />
+          AI 시대가 1인 크리에이터의 정의를 다시 쓰고 있는 지금,<br />
+          4시간 동안 한 자리에 모십니다.<br /><br />
+          그리고 — <span class="accent font-bold">강사료 없이</span>, 수익은 모두 다음 세대를 위해 씁니다.
+        </p>
+      </div>
+
+      <!-- Guarantee Quote -->
+      <div class="max-w-4xl mx-auto text-center px-4">
+        <svg class="w-12 h-12 accent mx-auto mb-6 opacity-40" fill="currentColor" viewBox="0 0 24 24"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg>
+        <p class="text-2xl md:text-4xl font-bold leading-tight mb-6">
+          이 4시간이 1년치 영상을 본 것보다<br /> 가치 없으면,<br />
+          <span class="accent">다음 시즌 무료 초대</span>를 약속드립니다.
+        </p>
+        <p class="text-secondary text-sm md:text-base">— 6인 발표자 공동 약속</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 7. CTA (Pricing + Form) -->
+  <!-- ============================================== -->
+  <section id="cta" class="py-20 md:py-32 relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#1ED760] rounded-full opacity-[0.03] blur-[160px] pointer-events-none"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 md:px-12">
+
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-center">
+        두 가지 선택지
+      </h2>
+      <p class="text-secondary md:text-lg text-center mb-16 max-w-2xl mx-auto">
+        가치 환산은 빼겠습니다. 솔직하게: <span class="text-white font-semibold">6명 강사료 0원 + 운영비만 + 나머지 전액 기부</span> = 그래서 가능한 가격입니다.
+      </p>
+
+      <!-- Pricing Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-4xl mx-auto">
+        <!-- General -->
+        <div class="card p-8 md:p-10">
+          <p class="text-xs uppercase tracking-widest text-secondary mb-4">일반 티켓</p>
+          <p class="text-5xl font-bold mb-1">₩100,000</p>
+          <p class="text-secondary text-sm mb-8">1인 / 부가세 포함</p>
+
+          <ul class="space-y-3 mb-8 text-sm">
+            <li class="flex items-start gap-2"><span class="accent font-bold">✓</span><span>AI 크리에이터 6인 직강 (4시간)</span></li>
+            <li class="flex items-start gap-2"><span class="accent font-bold">✓</span><span>토크콘서트 + 현장 Q&A</span></li>
+            <li class="flex items-start gap-2"><span class="accent font-bold">✓</span><span>발표자료 PDF 사후 발송</span></li>
+            <li class="flex items-start gap-2"><span class="accent font-bold">✓</span><span>강남 컨퍼런스홀</span></li>
+          </ul>
+          <p class="text-xs accent">💝 수익금 전액 기부에 함께</p>
+        </div>
+
+        <!-- VIP -->
+        <div class="card p-8 md:p-10 relative border-2 border-[#1ED760] bg-[#181818]">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-black text-xs font-bold px-4 py-1 rounded-full tracking-widest">RECOMMENDED</div>
+
+          <p class="text-xs uppercase tracking-widest text-secondary mb-4">VIP 티켓</p>
+          <p class="text-5xl font-bold mb-1">₩200,000</p>
+          <p class="text-secondary text-sm mb-8">30석 한정 · 발표자 1명당 5명만</p>
+
+          <ul class="space-y-3 mb-8 text-sm">
+            <li class="flex items-start gap-2"><span class="accent font-bold">✓</span><span>일반 티켓의 모든 혜택</span></li>
+            <li class="flex items-start gap-2"><span class="accent font-bold">✓</span><span><b>6인과 1시간 프라이빗 네트워킹</b></span></li>
+            <li class="flex items-start gap-2"><span class="accent font-bold">✓</span><span>18:00 이후 뒷풀이 식사 (희망자)</span></li>
+            <li class="flex items-start gap-2"><span class="accent font-bold">✓</span><span>1년 안에 다시 안 열리는 자리</span></li>
+          </ul>
+          <p class="text-xs accent">💝 더 큰 기부 기여</p>
+        </div>
+      </div>
+
+      <!-- Urgency Strip -->
+      <div class="max-w-4xl mx-auto bg-elevated rounded-xl p-6 md:p-8 mb-16">
+        <p class="text-xs accent font-bold tracking-widest mb-4">⚠️ 이 자리는, 2026년 단 1회입니다</p>
+        <ul class="space-y-2 text-sm md:text-base">
+          <li>· 강남 컨퍼런스홀 — 좌석 <b>150석 한정</b></li>
+          <li>· VIP 네트워킹 — 단 <b class="accent">30석</b> (발표자 1명당 5명)</li>
+          <li>· 다음 시즌 일정 미정</li>
+          <li>· <b class="accent">환불 불가</b> (결제 즉시 기부 인프라 예산으로 편성)</li>
+        </ul>
+      </div>
+
+      <!-- Payment Form -->
+      <form id="payment-form" class="max-w-2xl mx-auto bg-elevated rounded-xl p-8 md:p-10" onsubmit="handleSubmit(event)">
+        <h3 class="text-2xl md:text-3xl font-bold mb-2">신청하기</h3>
+        <p class="text-secondary text-sm mb-8">제출 후 24시간 내 카카오뱅크 입금 안내가 발송됩니다.</p>
+
+        <div class="space-y-4 mb-6">
+          <div>
+            <label class="block text-xs text-secondary mb-2 uppercase tracking-widest">이름</label>
+            <input type="text" name="name" required placeholder="홍길동" />
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs text-secondary mb-2 uppercase tracking-widest">휴대폰</label>
+              <input type="tel" name="phone" required placeholder="010-0000-0000" />
+            </div>
+            <div>
+              <label class="block text-xs text-secondary mb-2 uppercase tracking-widest">이메일</label>
+              <input type="email" name="email" required placeholder="you@email.com" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs text-secondary mb-2 uppercase tracking-widest">티켓 종류</label>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="cursor-pointer">
+                <input type="radio" name="ticket" value="general" class="peer sr-only" required checked />
+                <div class="card peer-checked:border-2 peer-checked:border-[#1ED760] peer-checked:bg-[#1F1F1F] border border-[#2A2A2A] text-center py-4">
+                  <p class="font-bold">일반</p>
+                  <p class="text-secondary text-xs">₩100,000</p>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="ticket" value="vip" class="peer sr-only" />
+                <div class="card peer-checked:border-2 peer-checked:border-[#1ED760] peer-checked:bg-[#1F1F1F] border border-[#2A2A2A] text-center py-4">
+                  <p class="font-bold">VIP</p>
+                  <p class="text-secondary text-xs">₩200,000 (30석)</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs text-secondary mb-2 uppercase tracking-widest">카카오뱅크 입금자명</label>
+            <input type="text" name="depositor" required placeholder="입금하실 이름" />
+          </div>
+        </div>
+
+        <label class="flex items-start gap-3 cursor-pointer mb-6 text-sm">
+          <input type="checkbox" name="agree" required class="w-auto mt-1" style="width: auto; padding: 0;" />
+          <span class="text-secondary">
+            <b class="text-white">환불 불가</b>에 동의합니다. (부득이한 경우 다음 시즌 자동 이월 가능)
+          </span>
+        </label>
+
+        <button type="submit" class="btn-primary w-full text-base md:text-lg">
+          5월 30일 강남 — 자리 확보하기 →
+        </button>
+
+        <p class="text-xs text-secondary text-center mt-4">
+          결제 안내 계좌: 카카오뱅크 (예금주: 김동준) · 24시간 내 입금
+        </p>
+      </form>
+
+      <!-- PS Block -->
+      <div class="max-w-2xl mx-auto mt-20 space-y-6 text-base md:text-lg">
+        <div class="p-6 bg-elevated rounded-lg">
+          <p class="text-xs accent font-bold tracking-widest mb-2">✉ P.S.</p>
+          <p>6인의 영상을 1년간 따라가는 것보다,<br />한 자리에서 4시간을 듣는 게 빠릅니다.</p>
+        </div>
+        <div class="p-6 bg-elevated rounded-lg">
+          <p class="text-xs accent font-bold tracking-widest mb-2">✉ P.P.S.</p>
+          <p>VIP 30석은 일반보다 2배 비싸지만,<br />6명과 1시간을 직접 대화하는 자리는 앞으로 1년간 다시 열리지 않습니다.</p>
+        </div>
+        <div class="p-6 bg-elevated rounded-lg">
+          <p class="text-xs accent font-bold tracking-widest mb-2">✉ P.P.P.S.</p>
+          <p>당신이 낸 10만원으로, 누군가의 첫 ChatGPT가 켜집니다.<br />이 행사가 끝나면, 우리 모두 그 사진을 받아볼 겁니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 8. FAQ -->
+  <!-- ============================================== -->
+  <section id="faq" class="py-20 md:py-32 bg-elevated">
+    <div class="max-w-3xl mx-auto px-6 md:px-12">
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-16">
+        자주 묻는 질문
+      </h2>
+
+      <div class="space-y-3">
+        <details class="faq-item card group">
+          <summary class="flex items-center justify-between gap-4">
+            <h3 class="font-semibold text-lg">환불이 정말 안 되나요?</h3>
+            <svg class="w-5 h-5 text-secondary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <p class="text-secondary mt-4 leading-relaxed">네. 결제 즉시 기부 인프라 구축 예산으로 편성됩니다. 대신, 부득이한 사유로 못 오시는 경우 <b class="text-white">다음 시즌 자동 이월</b>이 가능합니다.</p>
+        </details>
+
+        <details class="faq-item card group">
+          <summary class="flex items-center justify-between gap-4">
+            <h3 class="font-semibold text-lg">결제는 어떻게 하나요?</h3>
+            <svg class="w-5 h-5 text-secondary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <p class="text-secondary mt-4 leading-relaxed">카카오뱅크 계좌이체 (선결제). 신청 폼 제출 후 24시간 내 입금. <span class="text-white">예금주: 김동준</span></p>
+        </details>
+
+        <details class="faq-item card group">
+          <summary class="flex items-center justify-between gap-4">
+            <h3 class="font-semibold text-lg">VIP 티켓은 일반과 무엇이 다른가요?</h3>
+            <svg class="w-5 h-5 text-secondary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <p class="text-secondary mt-4 leading-relaxed">VIP 티켓 (20만원, 30석 한정)은 일반의 모든 혜택에 더해, <b class="text-white">17:30 이후 6인 발표자와 1시간 프라이빗 네트워킹</b>과 뒷풀이 식사에 참여하실 수 있습니다.</p>
+        </details>
+
+        <details class="faq-item card group">
+          <summary class="flex items-center justify-between gap-4">
+            <h3 class="font-semibold text-lg">발표 자료를 받을 수 있나요?</h3>
+            <svg class="w-5 h-5 text-secondary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <p class="text-secondary mt-4 leading-relaxed">네. 행사 후 일주일 내 PDF로 발송됩니다.</p>
+        </details>
+
+        <details class="faq-item card group">
+          <summary class="flex items-center justify-between gap-4">
+            <h3 class="font-semibold text-lg">녹화본이 제공되나요?</h3>
+            <svg class="w-5 h-5 text-secondary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <p class="text-secondary mt-4 leading-relaxed">현재 미정입니다. 차기 운영 회의에서 결정 후 신청자에게 별도 안내드립니다.</p>
+        </details>
+
+        <details class="faq-item card group">
+          <summary class="flex items-center justify-between gap-4">
+            <h3 class="font-semibold text-lg">주차 가능한가요?</h3>
+            <svg class="w-5 h-5 text-secondary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <p class="text-secondary mt-4 leading-relaxed">장소 확정 후 신청자에게 안내드립니다. 가급적 대중교통을 권장합니다.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 9. FOOTER -->
+  <!-- ============================================== -->
+  <footer class="py-16 border-t border-[#2A2A2A]">
+    <div class="max-w-6xl mx-auto px-6 md:px-12">
+
+      <p class="text-2xl md:text-3xl font-bold mb-12 max-w-2xl">
+        AI 시대,<br /> 1인 크리에이터는 무엇으로 <span class="accent">살아남는가</span>.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm mb-12">
+        <div>
+          <p class="text-xs uppercase tracking-widest text-secondary mb-3">행사</p>
+          <p>AI Creator Conf 2026 (시즌 1)</p>
+          <p class="text-secondary">2026.05.30 (토) 14:00–18:00</p>
+          <p class="text-secondary">강남 컨퍼런스홀 (TBD)</p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-widest text-secondary mb-3">발표자 6인</p>
+          <ul class="space-y-1 text-secondary">
+            <li><a href="#" class="hover:text-white transition">알린 ALINN</a></li>
+            <li><a href="#" class="hover:text-white transition">동테크</a></li>
+            <li><a href="#" class="hover:text-white transition">김이솝의 AI 가이드</a></li>
+            <li><a href="#" class="hover:text-white transition">신영선의 AI탐구</a></li>
+            <li><a href="#" class="hover:text-white transition">투쏠ㅣAI 에이전트</a></li>
+            <li><a href="#" class="hover:text-white transition">마케팅 AX</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-widest text-secondary mb-3">문의</p>
+          <p class="text-secondary">contact@example.com</p>
+          <p class="text-secondary mt-3 text-xs">수익금은 전액 AI 인프라 기부 (목표 1,500만원)</p>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-[#2A2A2A] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-secondary">
+        <p>© 2026 AI Creator Conf. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white transition">개인정보처리방침</a>
+          <a href="#" class="hover:text-white transition">환불 정책</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================== -->
+  <!-- MOBILE STICKY CTA -->
+  <!-- ============================================== -->
+  <div id="mobile-sticky" class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-elevated border-t border-[#2A2A2A] p-4 transform translate-y-full transition-transform duration-300">
+    <div class="flex items-center gap-3">
+      <div class="flex-1">
+        <p class="text-xs text-secondary">5/30 강남 · 환불 불가</p>
+        <p class="font-bold text-sm">₩100,000부터</p>
+      </div>
+      <a href="#cta" class="btn-primary text-sm" style="padding: 0.7rem 1.5rem;">자리 잡기</a>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- JS -->
+  <!-- ============================================== -->
+  <script>
+    // Nav blur on scroll
+    const nav = document.getElementById('nav');
+    const mobileSticky = document.getElementById('mobile-sticky');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) nav.classList.add('nav-blur');
+      else nav.classList.remove('nav-blur');
+
+      if (window.scrollY > 600) mobileSticky.classList.remove('translate-y-full');
+      else mobileSticky.classList.add('translate-y-full');
+    });
+
+    // D-Day countdown
+    const target = new Date('2026-05-30T14:00:00+09:00').getTime();
+    const cd = document.getElementById('countdown');
+    function tick() {
+      const now = Date.now();
+      const diff = target - now;
+      if (diff <= 0) { cd.textContent = '진행 중'; return; }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      cd.textContent = `${d}일 ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // ============ Scroll Reveal ============
+    (() => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion) return;
+
+      // 자동 reveal 대상 (Hero 제외 — Hero는 hero-in으로 별도 처리)
+      const targets = document.querySelectorAll(
+        'section:not(#hero) h2, ' +
+        'section:not(#hero) h3, ' +
+        'section:not(#hero) > div > p, ' +
+        'section:not(#hero) .card, ' +
+        'section:not(#hero) ul > li, ' +
+        '#cta form, ' +
+        '#cta blockquote, ' +
+        '#cta .max-w-2xl > div, ' +
+        'footer > div > *'
+      );
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+      // 그리드 형제들에게 stagger delay 부여
+      targets.forEach((el) => {
+        el.classList.add('reveal');
+
+        const parent = el.parentElement;
+        // 그리드 / 리스트 컨테이너 자식이면 인덱스 기반 딜레이
+        if (parent && (parent.classList.contains('grid') || parent.tagName === 'UL' || parent.classList.contains('space-y-3') || parent.classList.contains('space-y-4'))) {
+          const idx = Array.from(parent.children).indexOf(el);
+          const delayClass = 'reveal-d' + Math.min(idx + 1, 6);
+          el.classList.add(delayClass);
+        }
+
+        io.observe(el);
+      });
+    })();
+
+    // Form submit
+    function handleSubmit(e) {
+      e.preventDefault();
+      const data = new FormData(e.target);
+      const ticket = data.get('ticket') === 'vip' ? 'VIP (₩200,000)' : '일반 (₩100,000)';
+      alert(`신청 접수 완료!\n\n· ${data.get('name')} 님\n· 티켓: ${ticket}\n· 입금자명: ${data.get('depositor')}\n\n24시간 내 ${data.get('email')}로 입금 안내 메일 발송됩니다.\n\n계좌: 카카오뱅크 (예금주: 김동준)`);
+      // 실제 연동 시 fetch('/api/register', {...}) 로 교체
+    }
+  </script>
+</body>
+</html>
